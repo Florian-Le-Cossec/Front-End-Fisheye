@@ -1,25 +1,25 @@
-function photographerTemplate(data) {
-	const { name, portrait, city, tagline, price, country } = data;
-	const picture = `assets/photographers/${portrait}`;
-
-	function getUserCardDOM() {
-		const article = document.createElement( 'article' );
-		const img = document.createElement( 'img' );
-		img.setAttribute('src', picture);
-		const h2 = document.createElement( 'h2' );
-		h2.textContent = name;
-		const h3 = document.createElement( 'h3' );
-		h3.textContent = `${city}, ${country} `;
-		const p = document.createElement( 'p' );
-		p.textContent = tagline;
-		const span = document.createElement( 'span' );
-		span.textContent = `${price}€/jour`;
-		article.appendChild(img);
-		article.appendChild(h2);
-		article.appendChild(h3);
-		article.appendChild(p);
-		article.appendChild(span);
-		return (article);
+export default class PhotograhpherTemplate {
+	constructor(data) {
+		this._id = data.id;
+		this._name = data.name;
+		this._portrait = data.portrait;
+		this._city = data.city;
+		this._country = data.country;
+		this._tagline = data.tagline;
+		this._price = data.price;
 	}
-	return { name, picture, getUserCardDOM };
+	createUserCard() {
+		const article = document.createElement('article');
+		const card = `
+		<a href="photographer.html?id=${this._id}" role="link" aria-label="Consulter le profil de ${this._name}">
+			<img class="photographer_img" src="./assets/photographers/${this._portrait}" alt="${this._name}">
+			<h2 class="photographer_name">${this._name}</h2>
+		</a>
+		<span class="photographer_location">${this._city}, ${this._country}</span>
+		<p class="photographer_tagline">${this._tagline}</p>
+		<span class="photographer_price">${this._price}€/jour</span>
+		`;
+		article.innerHTML = card;
+		return article;
+	}
 }
