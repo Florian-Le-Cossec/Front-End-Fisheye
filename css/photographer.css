@@ -4,8 +4,17 @@
 
 .photograph-header {
     background-color: #FAFAFA;
+    display: flex;
     height: 300px;
     margin: 0 100px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.photograph-header h1 {
+    font-size: 45px;
+    margin: 0;
 }
 
 .contact_button {

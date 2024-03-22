@@ -1,4 +1,4 @@
-export default class PhotograhpherTemplate {
+export default class IndexCardTemplate {
 	constructor(data) {
 		this._id = data.id;
 		this._name = data.name;
@@ -8,11 +8,11 @@ export default class PhotograhpherTemplate {
 		this._tagline = data.tagline;
 		this._price = data.price;
 	}
-	createUserCard() {
+	createPhotographerCard() {
 		const article = document.createElement('article');
 		const card = `
 		<a href="photographer.html?id=${this._id}" role="link" aria-label="Consulter le profil de ${this._name}">
-			<img class="photographer_img" src="./assets/photographers/${this._portrait}" alt="${this._name}">
+			<img class="photographer_img" src="./assets/photographers/${this._portrait}" alt="">
 			<h2 class="photographer_name">${this._name}</h2>
 		</a>
 		<span class="photographer_location">${this._city}, ${this._country}</span>
