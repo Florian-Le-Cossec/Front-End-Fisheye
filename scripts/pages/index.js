@@ -1,4 +1,5 @@
 import IndexCardTemplate from '../templates/IndexCardTemplate.js';
+import PhotographerModel from '../models/PhotographerModel.js';
 
 async function getPhotographers() {
 	// Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
@@ -11,11 +12,13 @@ async function getPhotographers() {
 async function displayData(photographers) {
 	const photographersSection = document.querySelector('.photographer_section');
 
-	photographers.forEach((photographer) => {
-		const photographerModel = new IndexCardTemplate(photographer);
-		const userCardDOM = photographerModel.createPhotographerCard();
-		photographersSection.appendChild(userCardDOM);
-	});
+	photographers
+		.map(photographer => new PhotographerModel(photographer))
+		.forEach((photographer) => {
+			const photographerTemplate = new IndexCardTemplate(photographer);
+			const userCardDOM = photographerTemplate.createPhotographerCard();
+			photographersSection.appendChild(userCardDOM);
+		});
 }
 
 async function init() {
