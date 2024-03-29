@@ -45,14 +45,27 @@
 		<div class="modal">
 			<header>
 				<h2>Contactez-moi</h2>
+				<p class="modal_form_name"></p>
 				<img src="assets/icons/close.svg" alt="logo de fermeture de la modal" class="modal_close_btn" />
 			</header>
 			<form>
-				<div>
-					<label>Prénom</label>
-					<input />
+				<div class="formData">
+					<label for="firstname">Prénom</label>
+    				<input type="text" id="firstname" name="firstname" aria-label="Prénom" aria-required="true" />
 				</div>
-				<button class="contact_button">Envoyer</button>
+				<div class="formData">
+					<label for="lastname">Nom</label>
+    				<input type="text" id="lastname" name="lastname" aria-label="Prénom" aria-required="true" />
+				</div>
+				<div class="formData">
+					<label for="email">Email</label>
+    				<input type="text" id="email" name="email" aria-label="Email" aria-required="true" />
+				</div>
+				<div class="formData">
+					<label for="message">Votre Message</label>
+    				<textarea id="message" name="message" aria-label="Votre message" aria-required="true"></textarea>
+				</div>
+				<button type="submit" class="contact_button">Envoyer</button>
 			</form>
 		</div>
 	</div>

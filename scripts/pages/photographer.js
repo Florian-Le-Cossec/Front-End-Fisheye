@@ -4,7 +4,7 @@ import PhotographerModel from '../models/PhotographerModel.js';
 import MediasFactory from '../factories/mediasFactory.js';
 import PhotographerMediasTemplate from '../templates/PhotographerMediasTemplate.js';
 import { toggleFilter } from '../utils/filter.js';
-import { openCloseModal } from '../utils/contactForm.js';
+import { openCloseModal, validateForm } from '../utils/contactForm.js';
 
 async function getPhotographerById() {
 	const response = await fetch('./../../data/photographers.json');
@@ -37,6 +37,7 @@ async function init() {
 	displayData(photographer);
 	toggleFilter();
 	openCloseModal();
+	validateForm();
 }
  
 init();
