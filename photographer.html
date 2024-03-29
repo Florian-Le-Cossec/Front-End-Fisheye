@@ -12,17 +12,40 @@
 
 <body>
 	<header>
-		<img src="assets/images/logo.png" class="logo" />
+		<img src="assets/images/logo.png" class="logo" alt="Fisheye logo"/>
 	</header>
 	<main id="main">
 		<div class="photograph-header"></div>
+		<div class="photograph-filter">
+			<h2 id="sort-label">Trier par</h2>
+			<div class="filter-section">
+				<div class="dropdown" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter-options" aria-labelledby="sort-label">
+					<button id="sort-btn" class="sort-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter-options" aria-label="Trier par">
+						<span class="current-sort">Titre</span>
+						<span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
+					</button>
+					<ul id="filter-options" class="dropdown-content" aria-hidden="true" role="listbox" aria-labelledby="sort-label" tabindex="-1">
+						<li role="option" aria-selected="true">
+							<button class="dropdown-option" type="button" tabindex="-1" aria-label="Trier par titre">Titre</button>
+						</li>
+						<li role="option" aria-selected="false">
+							<button class="dropdown-option" type="button" tabindex="-1" aria-label="Trier par popularité">Popularité</button>
+						</li>
+						<li role="option" aria-selected="false">
+							<button class="dropdown-option" type="button" tabindex="-1" aria-label="Trier par date">Date</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
 		<div class="photograph-main"></div>
 	</main>
-	<div id="contact_modal">
+	<div class="contact_modal" aria-modal="true" role="dialog">
 		<div class="modal">
 			<header>
 				<h2>Contactez-moi</h2>
-				<img src="assets/icons/close.svg" onclick="closeModal()" />
+				<img src="assets/icons/close.svg" alt="logo de fermeture de la modal" class="modal_close_btn" />
 			</header>
 			<form>
 				<div>

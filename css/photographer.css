@@ -2,6 +2,21 @@
     display: none;
 }
 
+.photograph-main{
+    position: relative;
+}
+
+.photograph-media-filter {
+    margin: 20px 100px 0 100px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.photograph-media-filter label {
+    display: inline-block;
+    font-size: 18px;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     display: flex;
@@ -12,6 +27,99 @@
     padding: 0 50px;
 }
 
+
+/* Dropdown... */
+.photograph-filter {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    gap: 10px;
+    margin: 20px 0 0 100px;
+}
+
+.filter-section {
+    position: relative;
+    height: 100%;
+}
+
+.dropdown {
+    z-index: 10;
+    position: absolute;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    background-color: #901C1C;
+    transition: max-height .1s ease-in-out;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content li {
+    list-style-type: none;
+    position: relative;
+    width: 150px;
+}
+
+.dropdown-content li::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 1px;
+    background-color: #FFF;
+}
+
+.sort-btn,
+.dropdown-content .dropdown-option,
+.sort-btn:hover,
+.sort-btn:focus,
+.dropdown-content .dropdown-option:hover,
+.dropdown-content .dropdown-option:focus {
+    height: 50px;
+    padding: 15px;
+    font-size: 20px;
+    color: #FFF;
+    background-color: #901C1C;
+    border: none;
+}
+
+.sort-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+}
+
+.dropdown-content .dropdown-option {
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-content .dropdown-option:hover,
+.dropdown-content .dropdown-option:focus {
+    background-color: #DB8876;
+    color: #000;
+}
+
+.dropdown-effect {
+    max-height: 200px;
+}
+
+.photograph-header h1 {
+    font-size: 45px;
+    margin: 0;
+}
+
+
 .photograph-header h1 {
     font-size: 45px;
     margin: 0;
@@ -21,7 +129,7 @@
     font-size: 20px;
     font-weight: bold;
     color: white;
-    padding: 11px;
+    padding: 10px;
     width: 170px;
     height: 70px;
     border: none;
@@ -33,10 +141,12 @@
 .photograph_gallery {
     display: flex;
     flex-wrap: wrap;
-    margin: 100px;
+    margin: 50px 100px;
     max-width: 1225px;
     justify-content: space-between;
 }
+
+
 
 .gallery_card {
     display: flex;
@@ -53,6 +163,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 
 }
 
@@ -66,6 +177,22 @@
     color: #901C1C;
     font-weight: 400;
 }
+
+.photograph_likes-price {
+    position: sticky;
+    bottom: 0;
+    height: 45px;
+    justify-content: space-between;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    background-color: #DB8876;
+    width: 200px;
+    left: 100%;
+}
+
 
 .like_number {
     color: #901C1C;

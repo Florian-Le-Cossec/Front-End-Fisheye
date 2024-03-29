@@ -3,6 +3,8 @@ import PhotographerAboutTemplate from '../templates/PhotographerAboutTemplate.js
 import PhotographerModel from '../models/PhotographerModel.js';
 import MediasFactory from '../factories/mediasFactory.js';
 import PhotographerMediasTemplate from '../templates/PhotographerMediasTemplate.js';
+import { toggleFilter } from '../utils/filter.js';
+import { openCloseModal } from '../utils/contactForm.js';
 
 async function getPhotographerById() {
 	const response = await fetch('./../../data/photographers.json');
@@ -29,9 +31,12 @@ async function displayData({photographer, medias}) {
 	photographMedias.createPhotographerMedias();
 }
 
+
 async function init() {
 	const photographer = await getPhotographerById();
 	displayData(photographer);
+	toggleFilter();
+	openCloseModal();
 }
  
 init();

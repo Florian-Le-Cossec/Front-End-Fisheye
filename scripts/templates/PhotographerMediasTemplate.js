@@ -5,8 +5,8 @@ export default class PhotographerMediasTemplate {
 	}
 	generateMediaHTML(media) {
 		const mediaContent = media.image
-			? `<img class="gallery_img" src="./assets/images/${this.photographer.name}/${media.image}" alt="${media.name}">`
-			: `<video class="gallery_img" aria-label="">
+			? `<img class="gallery_img" src="./assets/images/${this.photographer.name}/${media.image}" alt="${media.title}">`
+			: `<video class="gallery_img" aria-label="${media.title}">
                     <source src="./assets/images/${this.photographer.name}/${media.video}" type="video/mp4">
                 </video>`;
 		return `
@@ -33,6 +33,14 @@ export default class PhotographerMediasTemplate {
             <section class="photograph_gallery">
                 ${mediaHTML}
             </section>
+			<div class="photograph_likes-price">
+				<div class="likes_count">
+					<span class="count">200 000</span>
+					<span class="fas fa-heart" aria-hidden="true"></span>					
+				</div>
+				<span>${this.photographer.price}€ / jour</span>
+			</div>
+			
         `;
 
 		profilePageContent.innerHTML = content;
