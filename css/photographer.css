@@ -301,3 +301,53 @@ form textarea {
 form button {
     margin-top: 10px;
 }
+
+/* Lightbox */
+
+.lightbox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    height: 80vh;
+    width: 70vw;
+    z-index: 100;
+    display: flex;
+}
+
+.lightbox_media {
+    height: 100%;
+    width: 100%;
+}
+
+.lightbox_video,
+.lightbox_img {
+    object-fit: cover;
+    width: 100%;
+    height: 95%;
+}
+
+.lightbox_close,
+.lightbox_previous,
+.lightbox_next {
+    color: #901C1C;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0;
+}
+
+.lightbox_previous {
+    margin-right: 20px;
+}
+.lightbox_next {
+    margin-left: 20px;
+}
+.lightbox_close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}

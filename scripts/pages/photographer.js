@@ -5,6 +5,7 @@ import MediasFactory from '../factories/mediasFactory.js';
 import PhotographerMediasTemplate from '../templates/PhotographerMediasTemplate.js';
 import { toggleFilter } from '../utils/filter.js';
 import { openCloseModal, validateForm } from '../utils/contactForm.js';
+import Lightbox from '../templates/PhotographerLightbox.js';
 
 async function getPhotographerById() {
 	const response = await fetch('./../../data/photographers.json');
@@ -29,6 +30,15 @@ async function displayData({photographer, medias}) {
 
 	const photographMedias = new PhotographerMediasTemplate(photographer, medias);
 	photographMedias.createPhotographerMedias();
+
+	const lightbox = new Lightbox(photographer, medias);
+
+	const galleryImages = document.querySelectorAll('.gallery_image');
+	galleryImages.forEach(image => {
+		image.addEventListener('click', () => {
+			lightbox.openLightbox();
+		});
+	});
 }
 
 

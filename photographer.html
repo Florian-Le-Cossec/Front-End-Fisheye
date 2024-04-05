@@ -12,27 +12,33 @@
 
 <body>
 	<header>
-		<img src="assets/images/logo.png" class="logo" alt="Fisheye logo"/>
+		<img src="assets/images/logo.png" class="logo" alt="Fisheye logo" />
 	</header>
 	<main id="main">
 		<div class="photograph-header"></div>
 		<div class="photograph-filter">
 			<h3 id="sort-label">Trier par</h3>
 			<div class="filter-section">
-				<div class="dropdown" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter-options" aria-labelledby="sort-label">
-					<button id="sort-btn" class="sort-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter-options" aria-label="Trier par">
+				<div class="dropdown" role="combobox" aria-haspopup="listbox" aria-expanded="false"
+					aria-controls="filter-options" aria-labelledby="sort-label">
+					<button id="sort-btn" class="sort-btn" type="button" aria-haspopup="listbox" aria-expanded="false"
+						aria-controls="filter-options" aria-label="Trier par">
 						<span class="current-sort">Popularité</span>
 						<span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
 					</button>
-					<ul id="filter-options" class="dropdown-content" aria-hidden="true" role="listbox" aria-labelledby="sort-label" tabindex="-1">
+					<ul id="filter-options" class="dropdown-content" aria-hidden="true" role="listbox"
+						aria-labelledby="sort-label" tabindex="-1">
 						<li role="option" aria-selected="false">
-							<button class="dropdown-option" type="button" tabindex="-1" aria-label="Trier par popularité">Popularité</button>
+							<button class="dropdown-option" type="button" tabindex="-1"
+								aria-label="Trier par popularité">Popularité</button>
 						</li>
 						<li role="option" aria-selected="true">
-							<button class="dropdown-option" type="button" tabindex="-1" aria-label="Trier par titre">Titre</button>
+							<button class="dropdown-option" type="button" tabindex="-1"
+								aria-label="Trier par titre">Titre</button>
 						</li>
 						<li role="option" aria-selected="false">
-							<button class="dropdown-option" type="button" tabindex="-1" aria-label="Trier par date">Date</button>
+							<button class="dropdown-option" type="button" tabindex="-1"
+								aria-label="Trier par date">Date</button>
 						</li>
 					</ul>
 				</div>
@@ -50,24 +56,25 @@
 			<form>
 				<div class="formData">
 					<label for="firstname">Prénom</label>
-    				<input type="text" id="firstname" name="firstname" aria-label="Prénom" aria-required="true" />
+					<input type="text" id="firstname" name="firstname" aria-label="Prénom" aria-required="true" />
 				</div>
 				<div class="formData">
 					<label for="lastname">Nom</label>
-    				<input type="text" id="lastname" name="lastname" aria-label="Prénom" aria-required="true" />
+					<input type="text" id="lastname" name="lastname" aria-label="Prénom" aria-required="true" />
 				</div>
 				<div class="formData">
 					<label for="email">Email</label>
-    				<input type="text" id="email" name="email" aria-label="Email" aria-required="true" />
+					<input type="text" id="email" name="email" aria-label="Email" aria-required="true" />
 				</div>
 				<div class="formData">
 					<label for="message">Votre Message</label>
-    				<textarea id="message" name="message" aria-label="Votre message" aria-required="true"></textarea>
+					<textarea id="message" name="message" aria-label="Votre message" aria-required="true"></textarea>
 				</div>
 				<button type="submit" class="contact_button">Envoyer</button>
 			</form>
 		</div>
 	</div>
+
 	<script src="/scripts/pages/photographer.js" type="module"></script>
 </body>
 
