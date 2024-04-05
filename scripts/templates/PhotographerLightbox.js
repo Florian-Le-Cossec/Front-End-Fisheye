@@ -61,7 +61,7 @@ export default class Lightbox {
 	}
 
 	closeLightbox() {
-		const lightbox = document.querySelector('.lightbox');
+		const lightbox = document.querySelector('.background-blur');
 		lightbox.remove();
 	}
 
@@ -77,12 +77,13 @@ export default class Lightbox {
 
 	lightboxTemplate() {
 		const currentMedia = this.mediasList[this.currentIndex];
+		console.log(currentMedia);
 		const lightboxMedia = document.querySelector('.lightbox_media');
 		const lightboxContent = currentMedia.image
-			? `<img class="lightbox_img" src="./assets/images/${this.photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">`
-			:	`<video class="lightbox_video" aria-label="${currentMedia.title}">
-                    <source src="./assets/images/${this.photographer.name}/${currentMedia.video}" type="video/mp4">
-            	</video>`;
+			? `	<img class="lightbox_img" src="./assets/images/${this.photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">`
+			: `	<video class="lightbox_video" controls aria-label="${currentMedia.name}">
+            		<source src="./assets/images/${this.photographer.name}/${currentMedia.video}" type="video/mp4">
+				</video>`;
 		lightboxMedia.innerHTML = 
 			`${lightboxContent}
 			<figcaption>${currentMedia.title}</figcaption>
