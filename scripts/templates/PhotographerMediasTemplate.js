@@ -5,10 +5,10 @@ export default class PhotographerMediasTemplate {
 	}
 	generateMediaHTML(media) {
 		const mediaContent = media.image
-			? `<img class="gallery_img" src="./assets/images/${this.photographer.name}/${media.image}" alt="${media.title}">`
-			: `<video class="gallery_img" aria-label="${media.title}">
+			? 	`<img class="gallery_img" src="./assets/images/${this.photographer.name}/${media.image}" alt="${media.title}">`
+			:	`<video class="gallery_img" aria-label="${media.title}">
                     <source src="./assets/images/${this.photographer.name}/${media.video}" type="video/mp4">
-                </video>`;
+            	</video>`;
 		return `
             <article class="gallery_card">
                 <a href="#" data-media=${media.id} role="link" aria-label="View media large">
