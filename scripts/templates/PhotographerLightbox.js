@@ -31,18 +31,20 @@ export default class Lightbox {
 
 	openLightbox() {
 		const lightboxHTML = `
-            <div class="lightbox">
-                <button class="lightbox_close">
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-                <button class="lightbox_previous">
-					<i class="fa-solid fa-chevron-left"></i>
-				</button>
-                <div class="lightbox_media"></div>
-                <button class="lightbox_next">
-					<i class="fa-solid fa-chevron-right"></i>
-				</button>
-            </div>
+			<div class="background-blur" aria-modal="true" role="dialog">
+				<div class="lightbox">
+					<button class="lightbox_close" aria-label="Fermer le carrousel">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+					<button class="lightbox_previous aria-label="Image précédente"">
+						<i class="fa-solid fa-chevron-left"></i>
+					</button>
+					<div class="lightbox_media"></div>
+					<button class="lightbox_next" aria-label="Image suivante">
+						<i class="fa-solid fa-chevron-right"></i>
+					</button>
+				</div>
+			</div>
         `;
 
 		document.body.insertAdjacentHTML('beforeend', lightboxHTML);
