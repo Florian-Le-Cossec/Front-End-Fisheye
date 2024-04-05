@@ -78,6 +78,7 @@ export function validateForm() {
 		const isInputAreaValid = verifyInputArea(messageArea);
 
 		if (isFirstnameValid && isLastnameValid && isEmailValid && isInputAreaValid) {
+			console.log('Prénom:', firstname.value, 'Nom:', lastname.value, 'Email:', email.value, 'Message:', messageArea.value);
 			contactModal.style.display = 'none';
 			form.reset();
 		}

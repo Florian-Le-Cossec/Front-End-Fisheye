@@ -75,11 +75,9 @@
 }
 
 .sort-btn,
-.dropdown-content .dropdown-option,
+.dropdown-option,
 .sort-btn:hover,
-.sort-btn:focus,
-.dropdown-content .dropdown-option:hover,
-.dropdown-content .dropdown-option:focus {
+.dropdown-option:hover {
     height: 50px;
     padding: 15px;
     font-size: 20px;
@@ -100,8 +98,8 @@
     text-align: left;
 }
 
-.dropdown-content .dropdown-option:hover,
-.dropdown-content .dropdown-option:focus {
+.sort-btn:hover,
+.dropdown-option:hover {
     background-color: #DB8876;
     color: #000;
 }
@@ -278,13 +276,13 @@ form label {
     transition: 0.3s;
   }
   
-  .formData[data-error-visible="true"]::after {
+.formData[data-error-visible="true"]::after {
     opacity: 1;
-  }
+}
   
-  .formData[data-error-visible="true"] .text-control {
+.formData[data-error-visible="true"] .text-control {
     border: 2px solid #901C1C;
-  }
+}
 
 form input {
     width: 100%;
