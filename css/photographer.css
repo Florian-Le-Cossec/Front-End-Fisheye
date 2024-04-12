@@ -166,12 +166,20 @@
 .gallery_card_info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    padding: 20px 0;
 }
 
 .gallery_card_info h2 {
     color: #901C1C;
     font-weight: 400;
+    white-space: break;
+    margin: 0;
+}
+.gallery_card_like {
+    display: flex;
+    gap: 4px;
+    align-items: center;
 }
 
 .photograph_likes-price {
@@ -201,6 +209,9 @@
     border: none;
     font-size: 16px;
     padding: 0;
+}
+.btn_like--active {
+    color: #901C1C;
 }
 
 /* modal */

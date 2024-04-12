@@ -56,7 +56,7 @@ export default class Lightbox {
 		btnPrevious.addEventListener('click', () => this.previousMedia());
 		btnNext.addEventListener('click', () => this.nextMedia());
 
-		// Affiche le contenu du media actuel
+		// display actual media
 		this.lightboxTemplate();
 	}
 
