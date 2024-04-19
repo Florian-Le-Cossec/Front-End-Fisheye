@@ -3,7 +3,7 @@ import PhotographerAboutTemplate from '../templates/PhotographerAboutTemplate.js
 import PhotographerModel from '../models/PhotographerModel.js';
 import MediasFactory from '../factories/mediasFactory.js';
 import PhotographerMediasTemplate from '../templates/PhotographerMediasTemplate.js';
-import { toggleFilter } from '../utils/filter.js';
+import DropdownFilter from '../templates/filterTemplate.js';
 import { openCloseModal, validateForm } from '../utils/contactForm.js';
 import Lightbox from '../templates/PhotographerLightbox.js';
 
@@ -27,9 +27,15 @@ async function getPhotographerById() {
 async function displayData({photographer, medias}) {
 	const photographAbout = new PhotographerAboutTemplate(photographer);
 	photographAbout.createPhotographerInfos();
-
+	
 	const photographMedias = new PhotographerMediasTemplate(photographer, medias);
 	photographMedias.createPhotographerMedias();
+	
+	const dropdownFIlter = new DropdownFilter(photographer, medias);
+	dropdownFIlter.createDropdownFilter();
+	dropdownFIlter.handleFilterMenu();
+	dropdownFIlter.handleClickMenuItems();
+	
 
 	const lightbox = new Lightbox(photographer, medias);
 
@@ -45,7 +51,6 @@ async function displayData({photographer, medias}) {
 async function init() {
 	const photographer = await getPhotographerById();
 	displayData(photographer);
-	toggleFilter();
 	openCloseModal();
 	validateForm();
 }
