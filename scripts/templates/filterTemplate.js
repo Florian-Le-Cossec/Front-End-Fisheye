@@ -1,9 +1,13 @@
 import PhotographerMediasTemplate from './PhotographerMediasTemplate.js';
+import PhotographerLightbox from './PhotographerLightbox.js';
 
 export default class DropdownFilter {
 	constructor(photographer, medias) {
+		// j'instancie les classe photographerMediasTemplate et photographerLightbox pour réutiliser leur fonction
 		this._photographerMediasTemplate = new PhotographerMediasTemplate(photographer, medias);
+		this._photographerLightbox = new PhotographerLightbox(photographer, medias);
 		this._medias = medias;
+		// l'appel d'handleFilterMedias ici me permet de filtrer ma liste par popularité par défaut
 		this.handleFilterMedias('Popularité');
 	}
 	createDropdownFilter() {
@@ -29,32 +33,39 @@ export default class DropdownFilter {
 		filterSection.innerHTML = dropdownHTML + filterSection.innerHTML;
 		return filterSection;
 	}
-
+	
 	handleFilterMenu() {
-		const sortmenu = document.querySelector('.dropdown-content');
+		const sortMenu = document.querySelector('.dropdown-content');
 		const sortMenuButton = document.querySelector('.sort-btn');
 		const sortButtons = document.querySelectorAll('.dropdown-content button');
 	
 		sortMenuButton.addEventListener('click', () => {
+			// vérifie si l'attribut aria-expanded est à true. S'il ne l'est pas il renvoie false sinon true;
 			const isExpanded = sortMenuButton.getAttribute('aria-expanded') === 'true';
+			// ici je set aria expanded à l'inverse de son état actuel
 			sortMenuButton.setAttribute('aria-expanded', !isExpanded);
-			sortmenu.classList.toggle('dropdown-effect');
+			// toggle l'ouverture du menu et le rotate du chevron
+			sortMenu.classList.toggle('dropdown-effect');
 			document.querySelector('.fa-chevron-up').classList.toggle('rotate');
+			
+			// retire ou ajoute l'accessibilité sur le menu de tri s'il ouvert ou non
+			const ariaHiddenValue = sortMenu.classList.contains('dropdown-effect') ? 'false' : 'true';
+			sortMenu.setAttribute('aria-hidden', ariaHiddenValue);
 
-			const ariaHiddenValue = sortmenu.classList.contains('dropdown-effect') ? 'false' : 'true';
-			sortmenu.setAttribute('aria-hidden', ariaHiddenValue);
-
-			const tabIndexValue = sortmenu.classList.contains('dropdown-effect') ? '0' : '-1';
+			// rendre focusable ou non les boutons si sortMenu est ouvert
+			const tabIndexValue = sortMenu.classList.contains('dropdown-effect') ? '0' : '-1';
 			sortButtons.forEach(button => button.setAttribute('tabindex', tabIndexValue));
 		});
-	
+		
+		// event qui sert à fermer le menu au clic sur la page.
 		document.addEventListener('click', (event) => {
 			const targetElement = event.target;
+			// tant que l'utilisateur ne clique pas sur l'élément dropdown on rentre dans la condition
 			if (!targetElement.closest('.dropdown')) {
-				sortmenu.classList.remove('dropdown-effect');
+				sortMenu.classList.remove('dropdown-effect');
 				sortMenuButton.setAttribute('aria-expanded', 'false');
 				document.querySelector('.fa-chevron-up').classList.remove('rotate');
-				sortmenu.setAttribute('aria-hidden', 'true');
+				sortMenu.setAttribute('aria-hidden', 'true');
 				sortButtons.forEach(button => button.setAttribute('tabindex', '-1'));
 			}
 		});
@@ -76,6 +87,7 @@ export default class DropdownFilter {
 		}));
 	}
 
+	// cette fonction me permet de gérer le tri et de mettre à jour la page medias
 	handleFilterMedias(value) {
 		switch (value) {
 		case 'Titre':
@@ -88,7 +100,7 @@ export default class DropdownFilter {
 			this._medias.sort((a, b) => new Date(b.date) - new Date(a.date));
 			break;
 		}
-
 		this._photographerMediasTemplate.createPhotographerMedias();
+		this._photographerLightbox.updateMediaList(this._medias);
 	}
 }

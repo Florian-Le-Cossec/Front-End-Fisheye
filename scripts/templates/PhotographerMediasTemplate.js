@@ -4,6 +4,7 @@ export default class PhotographerMediasTemplate {
 		this.medias = medias;
 	}
 	generateMediaHTML(media) {
+		// j'ajoute un data-media dans ma balise <a> qui me servira à ouvrir la lightbox
 		const mediaContent = media.image
 			? 	`<img class="gallery_img" src="./assets/images/${this.photographer.name}/${media.image}" alt="${media.title}">`
 			:	`<video class="gallery_img" aria-label="${media.title}">
