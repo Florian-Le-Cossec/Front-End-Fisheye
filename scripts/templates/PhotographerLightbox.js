@@ -3,19 +3,22 @@ export default class Lightbox {
 		this.photographer = photographer;
 		this.mediasList = medias;
 		this.currentIndex = 0;
+		this.isLightboxOpen = false;
 
 		// je selectionne tout mon document pour gérer la navigation dans ma lightbox
-		document.addEventListener('keyup', e => {
-			switch (e.key) {
-			case 'Escape':
-				this.closeLightbox();
-				break;
-			case 'ArrowLeft':
-				this.previousMedia();
-				break;
-			case 'ArrowRight':
-				this.nextMedia();
-				break;
+		document.addEventListener('keyup', event => {
+			if(this.isLightboxOpen) {
+				switch (event.key) {
+				case 'Escape':
+					this.closeLightbox();
+					break;
+				case 'ArrowLeft':
+					this.previousMedia();
+					break;
+				case 'ArrowRight':
+					this.nextMedia();
+					break;
+				}
 			}
 		});
 	}
@@ -49,12 +52,14 @@ export default class Lightbox {
 		btnNext.addEventListener('click', () => this.nextMedia());
 
 		// display actual media
+		this.isLightboxOpen = true;
 		this.lightboxTemplate();
 	}
 
 	closeLightbox() {
 		const lightbox = document.querySelector('.background-blur');
 		lightbox.remove();
+		this.isLightboxOpen = false;
 	}
 
 	nextMedia() {
@@ -76,8 +81,8 @@ export default class Lightbox {
 		const currentMedia = this.mediasList[this.currentIndex];
 		const lightboxMedia = document.querySelector('.lightbox_media');
 		const lightboxContent = currentMedia.image
-			? `	<img class="lightbox_img" src="./assets/images/${this.photographer.name}/${currentMedia.image}" alt="${currentMedia.title}">`
-			: `	<video class="lightbox_video" controls aria-label="${currentMedia.name}">
+			? `	<img class="lightbox_img" src="./assets/images/${this.photographer.name}/${currentMedia.image}" alt="nom de l'image: ${currentMedia.title}">`
+			: `	<video class="lightbox_video" controls aria-label="nom de la vidéo: ${currentMedia.name}">
             		<source src="./assets/images/${this.photographer.name}/${currentMedia.video}" type="video/mp4">
 				</video>`;
 		lightboxMedia.innerHTML = 

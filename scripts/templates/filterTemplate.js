@@ -31,6 +31,7 @@ export default class DropdownFilter {
 			</ul>
 		</div>`;
 		filterSection.innerHTML = dropdownHTML + filterSection.innerHTML;
+		
 		return filterSection;
 	}
 	
@@ -42,8 +43,10 @@ export default class DropdownFilter {
 		sortMenuButton.addEventListener('click', () => {
 			// vérifie si l'attribut aria-expanded est à true. S'il ne l'est pas il renvoie false sinon true;
 			const isExpanded = sortMenuButton.getAttribute('aria-expanded') === 'true';
+
 			// ici je set aria expanded à l'inverse de son état actuel
 			sortMenuButton.setAttribute('aria-expanded', !isExpanded);
+
 			// toggle l'ouverture du menu et le rotate du chevron
 			sortMenu.classList.toggle('dropdown-effect');
 			document.querySelector('.fa-chevron-up').classList.toggle('rotate');
@@ -80,9 +83,12 @@ export default class DropdownFilter {
 
 		btnsArray.forEach(btn => btn.addEventListener('click', () => {
 			currentButton.textContent = btn.textContent;
+
 			if (previousButton) previousButton.style.display = 'block';
+
 			previousButton = btn;
 			previousButton.style.display = 'none';
+
 			this.handleFilterMedias(currentButton.textContent);
 		}));
 	}

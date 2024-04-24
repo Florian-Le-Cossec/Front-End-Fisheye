@@ -12,7 +12,7 @@ export default class PhotographerAboutTemplate {
                 <p class="photographer_tagline">${this._photographer.tagline}</p>    
             </div>
             <button class="contact_button" type="button" aria-label="Open contact form">Contactez-moi</button>
-            <img class="photographer_img" src="./assets/photographers/${this._photographer.portrait}" alt="${this._photographer.name}">
+            <img class="photographer_img" src="./assets/photographers/${this._photographer.portrait}" alt="photo de profil de ${this._photographer.name}">
         `;
 		photographHeader.innerHTML = about;
 		return photographHeader;

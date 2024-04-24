@@ -6,8 +6,20 @@ export function openCloseModal() {
 	const closeModal = document.querySelector('.modal_close_btn');
 	contactBtn.addEventListener('click', () => {
 		contactModal.style.display = 'flex';
+		closeModal.focus();
 	});
 	closeModal.addEventListener('click', () => contactModal.style.display = 'none');
+	closeModal.addEventListener('keyup', (event) => {
+		if(event.key === 'Enter') {
+			contactModal.style.display = 'none';
+		}
+	});
+	
+	document.addEventListener('keyup', (event) => {
+		if(event.key === 'Escape') {
+			contactModal.style.display = 'none';
+		}
+	});
 }
 
 export function validateForm() {

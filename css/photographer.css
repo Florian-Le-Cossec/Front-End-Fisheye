@@ -209,6 +209,7 @@
     border: none;
     font-size: 16px;
     padding: 0;
+    cursor: pointer;
 }
 .btn_like--active {
     color: #901C1C;
@@ -311,6 +312,11 @@ form textarea {
 
 form button {
     margin-top: 10px;
+}
+
+.modal_close_btn {
+    background: none;
+    border: none;
 }
 
 /* Lightbox */

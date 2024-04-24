@@ -12,14 +12,14 @@ export default class PhotographerMediasTemplate {
             	</video>`;
 		return `
             <article class="gallery_card">
-                <a href="#" data-media=${media.id} role="link" aria-label="View media large">
+                <a href="#" data-media=${media.id} role="link" aria-label="Afficher le média en grand format">
                     ${mediaContent}
                 </a>
 				<div class="gallery_card_info">
 					<h2>${media.title}</h2>
-					<div class="gallery_card_like" role="group" aria-label="Like button and number of likes">
+					<div class="gallery_card_like" role="group" aria-label="Boutton like et le nombre de likes">
 						<span class="like_number">${media.likes}</span>
-						<button class="btn_like" type="button" data-media="${media.id}" aria-label="Like">
+						<button class="btn_like" type="button" data-media="${media.id}" aria-label="Boutton like">
 							<span class="fas fa-heart" aria-hidden="true"></span>
 						</button>
 					</div>

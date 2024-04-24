@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<meta charset="utf-8">
@@ -12,7 +11,9 @@
 
 <body>
 	<header>
-		<img src="assets/images/logo.png" class="logo" alt="Fisheye logo" />
+		<a href="index.html">
+			<img src="assets/images/logo.png" class="logo" alt="logo de fisheye" />
+		</a>
 	</header>
 	<main id="main">
 		<div class="photograph-header"></div>
@@ -27,7 +28,9 @@
 			<header>
 				<h2>Contactez-moi</h2>
 				<p class="modal_form_name"></p>
-				<img src="assets/icons/close.svg" alt="logo de fermeture de la modal" class="modal_close_btn" />
+				<button  class="modal_close_btn" aria-label="fermer le formulaire de contact">
+					<img src="assets/icons/close.svg" alt="logo de fermeture de la modal"/>
+				</button>
 			</header>
 			<form>
 				<div class="formData">
@@ -36,7 +39,7 @@
 				</div>
 				<div class="formData">
 					<label for="lastname">Nom</label>
-					<input type="text" id="lastname" name="lastname" aria-label="Prénom" aria-required="true" />
+					<input type="text" id="lastname" name="lastname" aria-label="Nom" aria-required="true" />
 				</div>
 				<div class="formData">
 					<label for="email">Email</label>
