@@ -9,11 +9,6 @@ export function openCloseModal() {
 		closeModal.focus();
 	});
 	closeModal.addEventListener('click', () => contactModal.style.display = 'none');
-	closeModal.addEventListener('keyup', (event) => {
-		if(event.key === 'Enter') {
-			contactModal.style.display = 'none';
-		}
-	});
 	
 	document.addEventListener('keyup', (event) => {
 		if(event.key === 'Escape') {
