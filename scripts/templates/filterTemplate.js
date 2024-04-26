@@ -3,7 +3,7 @@ import PhotographerLightbox from './PhotographerLightbox.js';
 
 export default class DropdownFilter {
 	constructor(photographer, medias) {
-		// j'instancie les classe photographerMediasTemplate et photographerLightbox pour réutiliser leur fonction
+		// j'instancie les classes photographerMediasTemplate et photographerLightbox pour réutiliser leurs fonctions
 		this._photographerMediasTemplate = new PhotographerMediasTemplate(photographer, medias);
 		this._photographerLightbox = new PhotographerLightbox(photographer, medias);
 		this._medias = medias;

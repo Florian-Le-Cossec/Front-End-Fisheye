@@ -93,7 +93,7 @@ export default class Lightbox {
 
 	// cette méthode permet d'ouvrir la lightbox peut importe le filtre qui est appliqué
 	updateMediaList(sortedMedias) {
-		// ma liste des medias = à la liste trié
+		// ma liste des medias = la liste trié
 		this.mediasList = sortedMedias;
 		// je réinitialise mon index à 0;
 		this.currentIndex = 0;
@@ -102,7 +102,7 @@ export default class Lightbox {
 		// Pour chaque media j'ajoute un écouteur d'evenement click
 		this.mediaLink.forEach(media => {
 			media.addEventListener('click', () => {
-				// je recupere mon dataset media que je compare avec l'id des items de ma liste. pour récuperer l'index de mon media
+				// je recupere mon dataset media pour comparer avec l'id des items de ma liste afin de récuperer l'index de mon media
 				const mediaId = media.dataset.media;
 				const mediaIndex = this.mediasList.findIndex(media => media.id.toString() === mediaId.toString());
 				// index réutilisé pour gérer l'ouverture de la bonne media ainsi que la media suivante et précédente.
